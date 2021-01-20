@@ -1,0 +1,32 @@
+extends layout.pug
+
+block content
+    h1 Nouveau concert
+    dataList(id="groupes")
+        each groupe in listeGroupe
+            option= groupe
+    dataList(id="lieux")
+        each salle in listeSalle
+            option= salle
+    div
+        form(method="post")
+            div(class="row")
+                div(class="form-group col-md-6")
+                    label Date
+                    input(type="date" name="date" class="form-control")
+                div(class="form-group col-md-6")
+                    label Salle de concert
+                    input(type="text" name="salle" list="lieux" class="form-control")
+            div(class="row")
+                div(class="form-group col-md-6") 
+                    label Groupe
+                    input(type="text" name="nomGroupe" list="groupes" class="form-control")
+                div(class="form-group col-md-6")
+                    label Note
+                    select(name="note" class="form-control")
+                        option 1
+                        option 2
+                        option 3
+                        option 4
+                        option 5
+            button(type="submit" class="btn btn-primary btn-block") Valider

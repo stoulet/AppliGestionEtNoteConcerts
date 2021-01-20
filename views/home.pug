@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+    div(class="row")
+        h1(class="col-md-6") Liste des concerts
+        div(class="col-md-6 text-right") 
+            a(href='/form' class="btn btn-primary") Ajouter un concert
+    table(class="table table-bordered table-striped")
+        tr
+            th Date
+            th Salle de concert
+            th Groupe
+            th Note
+            th Action
+        each concert in listeConcert
+            tr
+                td= concert.date.toDateString()
+                td= concert.salle
+                td= concert.nomGroupe
+                td= concert.note
+                td  
+                    a(href='/delete/'+ concert._id 
+                    class="btn btn-danger btn-block") Supprimer
+
+
